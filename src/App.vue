@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <!-- Navbar / Header -->
+    <!-- Navbar / Header Full Width -->
     <header class="navbar">
       <div class="nav-left">
         <h1 class="logo">CINEFLOW</h1>
@@ -12,7 +12,7 @@
       </div>
 
       <div class="nav-right">
-        <!-- Lokasi diubah menjadi Darjo Pride -->
+        <!-- Lokasi Darjo Pride -->
         <div class="location-badge">
           <span class="icon">📍</span>
           <span class="location-name">Darjo Pride</span>
@@ -21,10 +21,10 @@
       </div>
     </header>
 
-    <!-- Hero Banner (Featured Movie) -->
+    <!-- Hero Banner Full Width -->
     <section 
       class="hero-section" 
-      :style="{ backgroundImage: `linear-gradient(to right, rgba(15, 15, 20, 0.95), rgba(15, 15, 20, 0.4)), url(${featured.bgImage})` }"
+      :style="{ backgroundImage: `linear-gradient(to right, rgba(15, 15, 20, 0.95) 30%, rgba(15, 15, 20, 0.4) 100%), url(${featured.bgImage})` }"
     >
       <div class="hero-content">
         <span class="badge">{{ featured.subtitle }}</span>
@@ -45,13 +45,26 @@
       </div>
     </section>
 
-    <!-- Movie Catalog -->
+    <!-- Catalog Section Full Width -->
     <section class="catalog-section">
       <h3 class="section-title">Mau nonton apa hari ini?</h3>
 
+      <!-- Tombol Filter Genre sesuai desain Figma -->
+      <div class="genre-filters">
+        <button 
+          v-for="genre in genres" 
+          :key="genre"
+          :class="['genre-btn', { active: selectedGenre === genre }]"
+          @click="selectedGenre = genre"
+        >
+          {{ genre }}
+        </button>
+      </div>
+
+      <!-- Movie Grid -->
       <div class="movie-grid">
         <div 
-          v-for="movie in movies" 
+          v-for="movie in filteredMovies" 
           :key="movie.id" 
           class="movie-card"
           @click="selectMovie(movie)"
@@ -68,7 +81,7 @@
       </div>
     </section>
 
-    <!-- Promo Banner -->
+    <!-- Promo Banner Full Width -->
     <section class="promo-section">
       <div class="promo-card">
         <div class="promo-text">
@@ -89,8 +102,18 @@ export default {
   data() {
     return {
       featured: featuredMovie,
-      movies: moviesList
+      movies: moviesList,
+      genres: ['Semua', 'Drama', 'Sci-Fi', 'Horror', 'Action', 'Romance'],
+      selectedGenre: 'Semua'
     };
+  },
+  computed: {
+    filteredMovies() {
+      if (this.selectedGenre === 'Semua') {
+        return this.movies;
+      }
+      return this.movies.filter(movie => movie.genre.includes(this.selectedGenre));
+    }
   },
   methods: {
     showCinemaNotice() {
@@ -104,44 +127,51 @@ export default {
 </script>
 
 <style scoped>
-/* Reset & Base Dark Theme */
+/* Reset & Base Dark Theme Full Width */
 .app-container {
   background-color: #0f0f14;
   color: #ffffff;
   min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  padding-bottom: 40px;
+  overflow-x: hidden;
 }
 
-/* Navbar */
+/* Navbar Full Width */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  background-color: rgba(15, 15, 20, 0.9);
+  width: 100%;
+  padding: 20px 60px;
+  background-color: rgba(15, 15, 20, 0.95);
   backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
   z-index: 100;
+  box-sizing: border-box;
 }
 
 .nav-left {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 50px;
 }
 
 .logo {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: 2px;
   color: #f59e0b;
+  margin: 0;
 }
 
 .nav-links {
   display: flex;
-  gap: 24px;
+  gap: 30px;
 }
 
 .nav-links a {
@@ -165,19 +195,19 @@ export default {
 
 .location-badge {
   background-color: #1f2937;
-  padding: 8px 14px;
+  padding: 8px 16px;
   border-radius: 20px;
   font-size: 0.85rem;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   border: 1px solid #374151;
 }
 
 .user-avatar {
   background-color: #374151;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -185,18 +215,20 @@ export default {
   cursor: pointer;
 }
 
-/* Hero Section */
+/* Hero Section Full Width */
 .hero-section {
-  padding: 80px 40px;
+  width: 100%;
+  padding: 100px 60px;
   background-size: cover;
   background-position: center;
-  min-height: 450px;
+  min-height: 500px;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .hero-content {
-  max-width: 600px;
+  max-width: 650px;
 }
 
 .badge {
@@ -208,7 +240,7 @@ export default {
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 900;
   margin: 10px 0;
   line-height: 1.1;
@@ -218,14 +250,15 @@ export default {
   display: flex;
   gap: 12px;
   color: #d1d5db;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   margin-bottom: 16px;
 }
 
 .hero-description {
   color: #9ca3af;
   line-height: 1.6;
-  margin-bottom: 28px;
+  font-size: 1.05rem;
+  margin-bottom: 30px;
 }
 
 .hero-actions {
@@ -237,7 +270,7 @@ export default {
   background-color: #f59e0b;
   color: #000000;
   border: none;
-  padding: 12px 28px;
+  padding: 12px 30px;
   border-radius: 8px;
   font-weight: 700;
   cursor: pointer;
@@ -253,26 +286,57 @@ export default {
   background-color: transparent;
   color: #ffffff;
   border: 1px solid #4b5563;
-  padding: 12px 24px;
+  padding: 12px 26px;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
 }
 
-/* Catalog Section */
+/* Catalog Section Full Width */
 .catalog-section {
-  padding: 40px;
+  width: 100%;
+  padding: 50px 60px;
+  box-sizing: border-box;
 }
 
 .section-title {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+}
+
+/* Genre Filter Buttons */
+.genre-filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.genre-btn {
+  background-color: #181824;
+  color: #9ca3af;
+  border: 1px solid #27273a;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.genre-btn:hover,
+.genre-btn.active {
+  background-color: #f59e0b;
+  color: #000000;
+  border-color: #f59e0b;
 }
 
 .movie-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 24px;
 }
 
@@ -318,7 +382,7 @@ export default {
 }
 
 .movie-info h4 {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   margin: 0 0 6px 0;
 }
@@ -329,16 +393,18 @@ export default {
   margin: 0;
 }
 
-/* Promo Banner */
+/* Promo Section Full Width */
 .promo-section {
-  padding: 20px 40px;
+  width: 100%;
+  padding: 20px 60px 60px 60px;
+  box-sizing: border-box;
 }
 
 .promo-card {
   background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
   border: 1px solid #374151;
   border-radius: 16px;
-  padding: 32px;
+  padding: 40px;
 }
 
 .promo-badge {
@@ -350,8 +416,8 @@ export default {
 }
 
 .promo-text h3 {
-  font-size: 1.4rem;
-  margin: 8px 0;
+  font-size: 1.5rem;
+  margin: 10px 0;
 }
 
 .promo-text p {
