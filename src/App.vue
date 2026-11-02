@@ -6,8 +6,10 @@
         <h1 class="logo">CINEFLOW</h1>
         <nav class="nav-links">
           <a href="#" class="active">Beranda</a>
-          <a href="#" @click.prevent="showCinemaNotice">Bioskop</a>
-          <a href="#">Tiket Saya</a>
+          <a href="#" @click.prevent="showNotice('Halaman Bioskop')">Bioskop</a>
+          <a href="#" @click.prevent="showNotice('Halaman Promo')">Promo</a>
+          <a href="#" @click.prevent="showNotice('Halaman Tiket Saya')">Tiket Saya</a>
+          <a href="#" @click.prevent="showNotice('Halaman Contact Us')">Contact Us</a>
         </nav>
       </div>
 
@@ -115,8 +117,8 @@ export default {
     }
   },
   methods: {
-    showCinemaNotice() {
-      alert('Halaman bioskop akan segera tersedia.');
+    showNotice(pageName) {
+      alert(`${pageName} akan segera tersedia.`);
     },
     selectMovie(movie) {
       alert(`Anda memilih film: ${movie.title}`);
@@ -383,31 +385,25 @@ export default {
   font-size: 0.9rem;
 }
 
-/* PENGATURAN TAMPILAN KHUSUS HP */
 @media (max-width: 768px) {
   .navbar {
     padding: 15px 20px;
   }
-  
   .nav-links {
-    display: none; /* Sembunyikan navigasi teks di HP agar rapi */
+    display: none;
   }
-
   .hero-section {
     padding: 40px 20px;
     min-height: 350px;
   }
-
   .hero-title {
     font-size: 2.2rem;
   }
-
   .catalog-section, .promo-section {
     padding: 20px;
   }
-
   .movie-grid {
-    grid-template-columns: repeat(2, 1fr); /* Tampilan otomatis 2 kolom di HP */
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
 }
