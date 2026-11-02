@@ -18,7 +18,12 @@
           <span class="icon">📍</span>
           <span class="location-name">Darjo Pride</span>
         </div>
-        <div class="user-avatar" @click="showNotice('Halaman Login / Profil')">👤</div>
+        <div class="user-avatar" @click="showNotice('Halaman Login / Profil')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
       </div>
     </header>
 
@@ -29,7 +34,12 @@
         <div class="location-badge">
           <span>📍 Darjo Pride</span>
         </div>
-        <div class="user-avatar" @click="showNotice('Halaman Login / Profil')">👤</div>
+        <div class="user-avatar" @click="showNotice('Halaman Login / Profil')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
       </div>
     </header>
 
@@ -93,14 +103,16 @@
       </div>
     </section>
 
-    <!-- Promo Section -->
+    <!-- Promo Section (Desain Dipercantik & Elegan) -->
     <section class="promo-section">
       <div class="promo-card">
+        <div class="promo-decoration"></div>
         <div class="promo-text">
-          <span class="promo-badge">Nonton Lebih Hemat</span>
+          <span class="promo-badge">⚡ Penawaran Spesial</span>
           <h3>Nonton lebih hemat, ceritanya tetap hebat.</h3>
-          <p>Dapatkan diskon hingga 30% untuk pemesanan tiket pertama Anda.</p>
+          <p>Dapatkan diskon eksklusif hingga 30% untuk pemesanan tiket bioskop pertama Anda menggunakan metode pembayaran pilihan.</p>
         </div>
+        <button class="promo-btn" @click="showNotice('Klaim Promo')">Klaim Promo</button>
       </div>
     </section>
 
@@ -225,7 +237,7 @@ export default {
 }
 
 .user-avatar {
-  background-color: #374151;
+  background-color: #1f2937;
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -233,7 +245,13 @@ export default {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-weight: 600;
+  border: 1px solid #374151;
+  color: #f59e0b;
+  transition: background-color 0.2s;
+}
+
+.user-avatar:hover {
+  background-color: #374151;
 }
 
 .hero-section {
@@ -292,6 +310,11 @@ export default {
   border-radius: 8px;
   font-weight: 700;
   cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
 }
 
 .btn-secondary {
@@ -352,6 +375,11 @@ export default {
   overflow: hidden;
   cursor: pointer;
   border: 1px solid #27273a;
+  transition: transform 0.2s;
+}
+
+.movie-card:hover {
+  transform: translateY(-4px);
 }
 
 .poster-wrapper {
@@ -380,18 +408,85 @@ export default {
   padding: 12px;
 }
 
+/* ================= PROMO SECTION STYLING (DIJADIKAN LEBIH MENARIK) ================= */
 .promo-section {
   width: 100%;
   padding: 20px 40px 40px 40px;
 }
 
 .promo-card {
+  position: relative;
   background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
   border: 1px solid #374151;
-  border-radius: 14px;
-  padding: 30px;
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
+.promo-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background-color: #f59e0b;
+}
+
+.promo-text {
+  max-width: 700px;
+}
+
+.promo-badge {
+  display: inline-block;
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.promo-text h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.promo-text p {
+  color: #9ca3af;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.promo-btn {
+  background-color: #f59e0b;
+  color: #000000;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+  white-space: nowrap;
+}
+
+.promo-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
+}
+
+/* ================= RESPONSIVE DESIGN (MOBILE) ================= */
 @media (max-width: 768px) {
   .desktop-only {
     display: none !important;
@@ -423,6 +518,18 @@ export default {
     gap: 12px;
   }
 
+  .promo-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px;
+  }
+
+  .promo-btn {
+    width: 100%;
+  }
+
+  /* Bottom Navigation Bar di HP */
   .bottom-nav {
     position: fixed;
     bottom: 0;
