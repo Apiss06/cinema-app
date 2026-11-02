@@ -1,32 +1,42 @@
-export const movies = [
+// src/moviesData.js
+export const featuredMovie = {
+  id: 'hero-1',
+  title: 'RUANG Terakhir',
+  subtitle: 'FILM SPESIAL HARI INI',
+  description: 'Seorang ilmuwan menemukan portal waktu di ruang bawah tanah rumahnya yang membawanya kembali ke masa lalu untuk mengubah takdir keluarganya.',
+  genre: 'Sci-Fi / Drama',
+  duration: '2j 15m',
+  rating: '8.9',
+  bgImage: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1200&auto=format&fit=crop'
+};
+
+export const moviesList = [
   {
     id: 1,
-    title: "Avatar: The Way of Water",
-    genre: "Action, Sci-Fi, Adventure",
-    duration: "192 Minutes",
-    rating: "13+",
-    poster: "https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
-    price: 45000,
-    showtimes: ["12:30", "15:45", "19:00"]
+    title: 'Ruang Terakhir',
+    genre: 'Sci-Fi / Drama',
+    rating: '8.9',
+    poster: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=400&auto=format&fit=crop'
   },
   {
     id: 2,
-    title: "Avengers: Endgame",
-    genre: "Action, Sci-Fi, Drama",
-    duration: "181 Minutes",
-    rating: "13+",
-    poster: "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
-    price: 40000,
-    showtimes: ["13:00", "16:15", "19:30"]
+    title: 'Malam Mencekam',
+    genre: 'Horror / Thriller',
+    rating: '7.8',
+    poster: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=400&auto=format&fit=crop'
   },
   {
     id: 3,
-    title: "Interstellar",
-    genre: "Sci-Fi, Drama, Adventure",
-    duration: "169 Minutes",
-    rating: "13+",
-    poster: "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
-    price: 35000,
-    showtimes: ["11:00", "14:30", "18:00"]
+    title: 'Langkah Pertama',
+    genre: 'Action / Adventure',
+    rating: '8.4',
+    poster: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=400&auto=format&fit=crop'
+  },
+  {
+    id: 4,
+    title: 'Melodi Sunyi',
+    genre: 'Romance / Music',
+    rating: '8.1',
+    poster: 'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=400&auto=format&fit=crop'
   }
 ];
