@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <!-- Navbar Desktop (Hanya muncul di laptop/tablet) -->
+    <!-- Navbar Desktop -->
     <header class="navbar desktop-only">
       <div class="nav-left">
         <h1 class="logo">CINEFLOW</h1>
@@ -27,7 +27,7 @@
       </div>
     </header>
 
-    <!-- Navbar Mobile (Hanya muncul di HP dengan badge lokasi dan ikon profil) -->
+    <!-- Navbar Mobile -->
     <header class="navbar mobile-only">
       <h1 class="logo">CINEFLOW</h1>
       <div class="nav-right">
@@ -71,7 +71,6 @@
     <section class="catalog-section">
       <h3 class="section-title">Mau nonton apa hari ini?</h3>
 
-      <!-- Filter Genre -->
       <div class="genre-filters">
         <button 
           v-for="genre in genres" 
@@ -83,7 +82,6 @@
         </button>
       </div>
 
-      <!-- Movie Grid -->
       <div class="movie-grid">
         <div 
           v-for="movie in filteredMovies" 
@@ -103,10 +101,9 @@
       </div>
     </section>
 
-    <!-- Promo Section (Desain Dipercantik & Elegan) -->
+    <!-- Promo Section (Sudah Diperbaiki Tanpa Ruang Kosong Berlebih) -->
     <section class="promo-section">
       <div class="promo-card">
-        <div class="promo-decoration"></div>
         <div class="promo-text">
           <span class="promo-badge">⚡ Penawaran Spesial</span>
           <h3>Nonton lebih hemat, ceritanya tetap hebat.</h3>
@@ -247,11 +244,6 @@ export default {
   cursor: pointer;
   border: 1px solid #374151;
   color: #f59e0b;
-  transition: background-color 0.2s;
-}
-
-.user-avatar:hover {
-  background-color: #374151;
 }
 
 .hero-section {
@@ -310,11 +302,6 @@ export default {
   border-radius: 8px;
   font-weight: 700;
   cursor: pointer;
-  transition: opacity 0.2s;
-}
-
-.btn-primary:hover {
-  opacity: 0.9;
 }
 
 .btn-secondary {
@@ -375,11 +362,6 @@ export default {
   overflow: hidden;
   cursor: pointer;
   border: 1px solid #27273a;
-  transition: transform 0.2s;
-}
-
-.movie-card:hover {
-  transform: translateY(-4px);
 }
 
 .poster-wrapper {
@@ -408,7 +390,7 @@ export default {
   padding: 12px;
 }
 
-/* ================= PROMO SECTION STYLING (DIJADIKAN LEBIH MENARIK) ================= */
+/* ================= PROMO SECTION DIPERBAIKI (TIDAK ADA RUANG KOSONG BERLEBIH) ================= */
 .promo-section {
   width: 100%;
   padding: 20px 40px 40px 40px;
@@ -419,10 +401,11 @@ export default {
   background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
   border: 1px solid #374151;
   border-radius: 16px;
-  padding: 32px;
+  padding: 30px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 30px;
   overflow: hidden;
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
@@ -438,7 +421,7 @@ export default {
 }
 
 .promo-text {
-  max-width: 700px;
+  flex: 1;
 }
 
 .promo-badge {
@@ -456,7 +439,7 @@ export default {
 }
 
 .promo-text h3 {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 800;
   margin-bottom: 8px;
   color: #ffffff;
@@ -465,7 +448,7 @@ export default {
 .promo-text p {
   color: #9ca3af;
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .promo-btn {
@@ -477,13 +460,12 @@ export default {
   font-weight: 700;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: transform 0.2s, opacity 0.2s;
   white-space: nowrap;
+  transition: opacity 0.2s;
 }
 
 .promo-btn:hover {
   opacity: 0.9;
-  transform: scale(1.03);
 }
 
 /* ================= RESPONSIVE DESIGN (MOBILE) ================= */
@@ -529,7 +511,6 @@ export default {
     width: 100%;
   }
 
-  /* Bottom Navigation Bar di HP */
   .bottom-nav {
     position: fixed;
     bottom: 0;
