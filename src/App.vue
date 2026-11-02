@@ -207,17 +207,17 @@ export default {
   font-weight: 600;
 }
 
-<!-- Navbar Mobile (Hanya muncul di HP dengan ikon profil untuk fitur login) -->
-    <header class="navbar mobile-only">
-      <h1 class="logo">CINEFLOW</h1>
-      <div class="nav-right">
-        <div class="location-badge">
-          <span>📍 Darjo Pride</span>
-        </div>
-        <div class="user-avatar" @click="showNotice('Halaman Login / Profil')">👤</div>
-      </div>
-    </header>
-    
+<!-- Navbar Mobile (Hanya muncul di HP dengan ikon profil) -->
+<header class="navbar mobile-only">
+  <h1 class="logo">CINEFLOW</h1>
+  <div class="nav-right">
+    <div class="location-badge">
+      <span>📍 Darjo Pride</span>
+    </div>
+    <div class="user-avatar" @click="showNotice('Halaman Login / Profil')">👤</div>
+  </div>
+</header>
+
 .location-badge {
   background-color: #1f2937;
   padding: 6px 14px;
