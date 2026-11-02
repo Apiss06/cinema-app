@@ -18,17 +18,18 @@
           <span class="icon">📍</span>
           <span class="location-name">Darjo Pride</span>
         </div>
-        <div class="user-avatar">👤</div>
+        <div class="user-avatar" @click="showNotice('Halaman Login / Profil')">👤</div>
       </div>
     </header>
 
-    <!-- Navbar Mobile (Hanya muncul di HP agar tidak padat di atas) -->
+    <!-- Navbar Mobile (Hanya muncul di HP dengan badge lokasi dan ikon profil) -->
     <header class="navbar mobile-only">
       <h1 class="logo">CINEFLOW</h1>
       <div class="nav-right">
         <div class="location-badge">
           <span>📍 Darjo Pride</span>
         </div>
+        <div class="user-avatar" @click="showNotice('Halaman Login / Profil')">U</div>
       </div>
     </header>
 
@@ -152,10 +153,9 @@ export default {
   color: #ffffff;
   min-height: 100vh;
   width: 100%;
-  padding-bottom: 60px; /* Ruang agar konten terbawah tidak tertutup bottom nav di HP */
+  padding-bottom: 60px;
 }
 
-/* Pengaturan Tampilan Default (Desktop) */
 .mobile-only {
   display: none !important;
 }
@@ -207,16 +207,11 @@ export default {
   font-weight: 600;
 }
 
-<!-- Navbar Mobile (Hanya muncul di HP dengan ikon profil) -->
-<header class="navbar mobile-only">
-  <h1 class="logo">CINEFLOW</h1>
-  <div class="nav-right">
-    <div class="location-badge">
-      <span>📍 Darjo Pride</span>
-    </div>
-    <div class="user-avatar" @click="showNotice('Halaman Login / Profil')">U</div>
-  </div>
-</header>
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 
 .location-badge {
   background-color: #1f2937;
@@ -238,6 +233,7 @@ export default {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .hero-section {
@@ -396,7 +392,6 @@ export default {
   padding: 30px;
 }
 
-/* PENGATURAN KHUSUS LAYAR HP (Maksimal Lebar 768px) */
 @media (max-width: 768px) {
   .desktop-only {
     display: none !important;
@@ -428,7 +423,6 @@ export default {
     gap: 12px;
   }
 
-  /* Styling Bottom Navigation Bar di HP */
   .bottom-nav {
     position: fixed;
     bottom: 0;
