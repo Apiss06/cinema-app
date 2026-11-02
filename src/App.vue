@@ -387,21 +387,55 @@ export default {
 
 @media (max-width: 768px) {
   .navbar {
-    padding: 15px 20px;
+    padding: 12px 16px;
+    justify-content: space-between;
   }
+  
+  /* Membuat menu teks tetap tampil dengan ukuran font yang lebih kecil dan rapat di HP */
+  .nav-left {
+    gap: 10px;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+
   .nav-links {
-    display: none;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 2px;
   }
+
+  .nav-links a {
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+
+  .location-badge {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+  }
+
+  .user-avatar {
+    width: 30px;
+    height: 30px;
+  }
+
   .hero-section {
-    padding: 40px 20px;
+    padding: 40px 16px;
     min-height: 350px;
   }
+
   .hero-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
+
   .catalog-section, .promo-section {
-    padding: 20px;
+    padding: 16px;
   }
+
   .movie-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
