@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <!-- Navbar / Header Full Width -->
+    <!-- Navbar -->
     <header class="navbar">
       <div class="nav-left">
         <h1 class="logo">CINEFLOW</h1>
@@ -12,7 +12,6 @@
       </div>
 
       <div class="nav-right">
-        <!-- Lokasi Darjo Pride -->
         <div class="location-badge">
           <span class="icon">📍</span>
           <span class="location-name">Darjo Pride</span>
@@ -21,7 +20,7 @@
       </div>
     </header>
 
-    <!-- Hero Banner Full Width -->
+    <!-- Hero Section -->
     <section 
       class="hero-section" 
       :style="{ backgroundImage: `linear-gradient(to right, rgba(15, 15, 20, 0.95) 30%, rgba(15, 15, 20, 0.4) 100%), url(${featured.bgImage})` }"
@@ -45,11 +44,11 @@
       </div>
     </section>
 
-    <!-- Catalog Section Full Width -->
+    <!-- Catalog Section -->
     <section class="catalog-section">
       <h3 class="section-title">Mau nonton apa hari ini?</h3>
 
-      <!-- Tombol Filter Genre sesuai desain Figma -->
+      <!-- Filter Genre -->
       <div class="genre-filters">
         <button 
           v-for="genre in genres" 
@@ -81,7 +80,7 @@
       </div>
     </section>
 
-    <!-- Promo Banner Full Width -->
+    <!-- Promo Section -->
     <section class="promo-section">
       <div class="promo-card">
         <div class="promo-text">
@@ -127,87 +126,71 @@ export default {
 </script>
 
 <style scoped>
-/* Reset & Base Dark Theme Full Width */
 .app-container {
   background-color: #0f0f14;
   color: #ffffff;
   min-height: 100vh;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  overflow-x: hidden;
+  width: 100%;
 }
 
-/* Navbar Full Width */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 20px 60px;
+  padding: 20px 40px;
   background-color: rgba(15, 15, 20, 0.95);
   backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
   z-index: 100;
-  box-sizing: border-box;
 }
 
 .nav-left {
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 30px;
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 800;
   letter-spacing: 2px;
   color: #f59e0b;
-  margin: 0;
 }
 
 .nav-links {
   display: flex;
-  gap: 30px;
+  gap: 20px;
 }
 
 .nav-links a {
   color: #9ca3af;
   text-decoration: none;
-  font-size: 0.95rem;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: #ffffff;
-  font-weight: 600;
+  font-size: 0.9rem;
 }
 
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 .location-badge {
   background-color: #1f2937;
-  padding: 8px 16px;
+  padding: 6px 14px;
   border-radius: 20px;
   font-size: 0.85rem;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   border: 1px solid #374151;
 }
 
 .user-avatar {
   background-color: #374151;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -215,20 +198,18 @@ export default {
   cursor: pointer;
 }
 
-/* Hero Section Full Width */
 .hero-section {
   width: 100%;
-  padding: 100px 60px;
+  padding: 80px 40px;
   background-size: cover;
   background-position: center;
-  min-height: 500px;
+  min-height: 450px;
   display: flex;
   align-items: center;
-  box-sizing: border-box;
 }
 
 .hero-content {
-  max-width: 650px;
+  max-width: 600px;
 }
 
 .badge {
@@ -240,7 +221,7 @@ export default {
 }
 
 .hero-title {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 900;
   margin: 10px 0;
   line-height: 1.1;
@@ -250,84 +231,71 @@ export default {
   display: flex;
   gap: 12px;
   color: #d1d5db;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   margin-bottom: 16px;
 }
 
 .hero-description {
   color: #9ca3af;
   line-height: 1.6;
-  font-size: 1.05rem;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
 .hero-actions {
   display: flex;
-  gap: 16px;
+  gap: 14px;
 }
 
 .btn-primary {
   background-color: #f59e0b;
   color: #000000;
   border: none;
-  padding: 12px 30px;
+  padding: 12px 26px;
   border-radius: 8px;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s, background-color 0.2s;
-}
-
-.btn-primary:hover {
-  background-color: #d97706;
-  transform: translateY(-2px);
 }
 
 .btn-secondary {
   background-color: transparent;
   color: #ffffff;
   border: 1px solid #4b5563;
-  padding: 12px 26px;
+  padding: 12px 22px;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
 }
 
-/* Catalog Section Full Width */
 .catalog-section {
   width: 100%;
-  padding: 50px 60px;
-  box-sizing: border-box;
+  padding: 40px;
 }
 
 .section-title {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
-/* Genre Filter Buttons */
 .genre-filters {
   display: flex;
-  gap: 12px;
-  margin-bottom: 30px;
+  gap: 10px;
+  margin-bottom: 24px;
   overflow-x: auto;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
 }
 
 .genre-btn {
   background-color: #181824;
   color: #9ca3af;
   border: 1px solid #27273a;
-  padding: 8px 20px;
+  padding: 6px 16px;
   border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.85rem;
   cursor: pointer;
   white-space: nowrap;
-  transition: all 0.2s;
 }
 
-.genre-btn:hover,
 .genre-btn.active {
   background-color: #f59e0b;
   color: #000000;
@@ -336,22 +304,16 @@ export default {
 
 .movie-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
 }
 
 .movie-card {
   background-color: #181824;
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
   border: 1px solid #27273a;
-}
-
-.movie-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
 }
 
 .poster-wrapper {
@@ -367,61 +329,86 @@ export default {
 
 .rating-tag {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 8px;
+  right: 8px;
   background-color: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(4px);
   padding: 4px 8px;
   border-radius: 6px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
 }
 
 .movie-info {
-  padding: 16px;
+  padding: 12px;
 }
 
 .movie-info h4 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin: 0 0 6px 0;
+  font-size: 0.95rem;
+  margin: 0 0 4px 0;
 }
 
 .movie-info p {
   color: #9ca3af;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   margin: 0;
 }
 
-/* Promo Section Full Width */
 .promo-section {
   width: 100%;
-  padding: 20px 60px 60px 60px;
-  box-sizing: border-box;
+  padding: 20px 40px 40px 40px;
 }
 
 .promo-card {
   background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
   border: 1px solid #374151;
-  border-radius: 16px;
-  padding: 40px;
+  border-radius: 14px;
+  padding: 30px;
 }
 
 .promo-badge {
   color: #f59e0b;
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 .promo-text h3 {
-  font-size: 1.5rem;
-  margin: 10px 0;
+  font-size: 1.3rem;
+  margin: 8px 0;
 }
 
 .promo-text p {
   color: #9ca3af;
   margin: 0;
+  font-size: 0.9rem;
+}
+
+/* PENGATURAN TAMPILAN KHUSUS HP */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+  
+  .nav-links {
+    display: none; /* Sembunyikan navigasi teks di HP agar rapi */
+  }
+
+  .hero-section {
+    padding: 40px 20px;
+    min-height: 350px;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .catalog-section, .promo-section {
+    padding: 20px;
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(2, 1fr); /* Tampilan otomatis 2 kolom di HP */
+    gap: 12px;
+  }
 }
 </style>
