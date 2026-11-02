@@ -214,7 +214,7 @@ export default {
     <div class="location-badge">
       <span>📍 Darjo Pride</span>
     </div>
-    <div class="user-avatar" @click="showNotice('Halaman Login / Profil')">👤</div>
+    <div class="user-avatar" @click="showNotice('Halaman Login / Profil')">U</div>
   </div>
 </header>
 
