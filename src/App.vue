@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
-    <!-- Navbar -->
-    <header class="navbar">
+    <!-- Navbar Desktop (Hanya muncul di laptop/tablet) -->
+    <header class="navbar desktop-only">
       <div class="nav-left">
         <h1 class="logo">CINEFLOW</h1>
         <nav class="nav-links">
@@ -19,6 +19,16 @@
           <span class="location-name">Darjo Pride</span>
         </div>
         <div class="user-avatar">👤</div>
+      </div>
+    </header>
+
+    <!-- Navbar Mobile (Hanya muncul di HP agar tidak padat di atas) -->
+    <header class="navbar mobile-only">
+      <h1 class="logo">CINEFLOW</h1>
+      <div class="nav-right">
+        <div class="location-badge">
+          <span>📍 Darjo Pride</span>
+        </div>
       </div>
     </header>
 
@@ -92,6 +102,15 @@
         </div>
       </div>
     </section>
+
+    <!-- Bottom Navigation Bar Khusus HP -->
+    <nav class="bottom-nav mobile-only">
+      <a href="#" class="active" @click.prevent="showNotice('Beranda')">🏠<span>Beranda</span></a>
+      <a href="#" @click.prevent="showNotice('Bioskop')">🎬<span>Bioskop</span></a>
+      <a href="#" @click.prevent="showNotice('Promo')">🏷️<span>Promo</span></a>
+      <a href="#" @click.prevent="showNotice('Tiket Saya')">🎟️<span>Tiket</span></a>
+      <a href="#" @click.prevent="showNotice('Contact Us')">📞<span>Kontak</span></a>
+    </nav>
   </div>
 </template>
 
@@ -133,10 +152,19 @@ export default {
   color: #ffffff;
   min-height: 100vh;
   width: 100%;
+  padding-bottom: 60px; /* Ruang agar konten terbawah tidak tertutup bottom nav di HP */
+}
+
+/* Pengaturan Tampilan Default (Desktop) */
+.mobile-only {
+  display: none !important;
+}
+
+.desktop-only {
+  display: flex !important;
 }
 
 .navbar {
-  display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -170,6 +198,13 @@ export default {
   color: #9ca3af;
   text-decoration: none;
   font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .nav-right {
@@ -344,17 +379,6 @@ export default {
   padding: 12px;
 }
 
-.movie-info h4 {
-  font-size: 0.95rem;
-  margin: 0 0 4px 0;
-}
-
-.movie-info p {
-  color: #9ca3af;
-  font-size: 0.8rem;
-  margin: 0;
-}
-
 .promo-section {
   width: 100%;
   padding: 20px 40px 40px 40px;
@@ -367,60 +391,18 @@ export default {
   padding: 30px;
 }
 
-.promo-badge {
-  color: #f59e0b;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.promo-text h3 {
-  font-size: 1.3rem;
-  margin: 8px 0;
-}
-
-.promo-text p {
-  color: #9ca3af;
-  margin: 0;
-  font-size: 0.9rem;
-}
-
+/* PENGATURAN KHUSUS LAYAR HP (Maksimal Lebar 768px) */
 @media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: flex !important;
+  }
+
   .navbar {
     padding: 12px 16px;
-    justify-content: space-between;
-  }
-  
-  /* Membuat menu teks tetap tampil dengan ukuran font yang lebih kecil dan rapat di HP */
-  .nav-left {
-    gap: 10px;
-  }
-
-  .logo {
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    padding-bottom: 2px;
-  }
-
-  .nav-links a {
-    font-size: 0.75rem;
-    white-space: nowrap;
-  }
-
-  .location-badge {
-    padding: 4px 10px;
-    font-size: 0.75rem;
-  }
-
-  .user-avatar {
-    width: 30px;
-    height: 30px;
   }
 
   .hero-section {
@@ -429,7 +411,7 @@ export default {
   }
 
   .hero-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .catalog-section, .promo-section {
@@ -439,6 +421,40 @@ export default {
   .movie-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
+  }
+
+  /* Styling Bottom Navigation Bar di HP */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(15, 15, 20, 0.98);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid #27273a;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    z-index: 1000;
+  }
+
+  .bottom-nav a {
+    color: #9ca3af;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .bottom-nav a span {
+    font-size: 0.65rem;
+  }
+
+  .bottom-nav a.active,
+  .bottom-nav a:hover {
+    color: #f59e0b;
   }
 }
 </style>
